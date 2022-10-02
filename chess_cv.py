@@ -1,11 +1,15 @@
 import discord
-# from discord import messages
 from PIL import ImageGrab
 import io
 import webbrowser
+import sys
+
 from details import *
+# Defines token and channel number
 
 image = ImageGrab.grabclipboard()
+
+play_first = "white"
 
 class MyClient(discord.Client):
     async def on_ready(self):
@@ -14,7 +18,7 @@ class MyClient(discord.Client):
             image.save(image_binary, 'PNG')
             image_binary.seek(0)
             await self.get_channel(channel_number).send(file=discord.File(fp=image_binary, filename='image.png'))
-            await self.get_channel(channel_number).send("cv.scan black")
+            await self.get_channel(channel_number).send(f"cv.scan {play_first}")
     
     async def on_message(self,message):
         if message.author.bot:
@@ -24,11 +28,15 @@ class MyClient(discord.Client):
                 url = s[s.find('(')+1:s.find(')')]
                 webbrowser.open(url, new=2)
             except:
-                pass
-        
-            exit()
+                exit()
+            finally:
+                exit()
 
-client = MyClient(intents=discord.Intents.default())
-client.run(TOKEN,bot=False)
 
+
+if __name__ == "__main__":
+    play_first = sys.argv[1]
+    
+    client = MyClient(intents=discord.Intents.default())
+    client.run(TOKEN,bot=False)
 

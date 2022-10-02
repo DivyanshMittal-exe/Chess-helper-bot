@@ -5,7 +5,8 @@ The auto hotkey files make it easier to run the script. Simply pressing <kbd>Rig
 
 ## Setup
 Install the discord.py module[^1]. In a details.py file, just add the "Token" and "channel_number". To get the token, follow this [guide](https://discordhelp.net/discord-token). The channel_number is the Channel ID that the bot will use to communicate with Chess-Vision-AI bot. So just create a new random server, add chess vision ai bot to it, and set channel_number to any of the servers channel-id.
-
-To use the autohotkey, change the path of python, to that of your machines
+Take a screenshot of the chess position and `python chess_cv white` or `python chess_cv black` to run the script manually
+To use the autohotkey, change the path of python, to that of your machines[^2]
 
 [^1]: Install any version of type 2.x
+[^2]: Place a shortcut in shell:startup to have this autohotkey already running whenever you start your computer

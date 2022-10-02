@@ -4,7 +4,12 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 >^w::
-run, python.exe cv_white.py
+run, python.exe chess_cv.py white
+WinWait, C:\Users\Divyansh Mittal\AppData\Local\Programs\Python\Python39\python.exe
+WinMinimize ;
+
+>^b::
+run, python.exe chess_cv.py black
 WinWait, C:\Users\Divyansh Mittal\AppData\Local\Programs\Python\Python39\python.exe
 WinMinimize ;
 
